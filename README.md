@@ -1,4 +1,4 @@
-# 🏳‍⚧🐍 Transdoc Python
+# 🏳️‍⚧️🐍 Transdoc Python
 
 A Transdoc handler for Python docstrings.
 
