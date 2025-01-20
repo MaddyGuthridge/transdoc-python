@@ -311,7 +311,7 @@ optional = false
 python-versions = ">= 3.11"
 groups = ["main"]
 files = []
-develop = false
+develop = true
 
 [package.dependencies]
 click = ">=8.1.7,<9"
@@ -335,4 +335,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.12"
-content-hash = "130abfff06ae8614bae0be3330837eea49d3e28365458c09ba1df7047592724b"
+content-hash = "06db301ebe8999255181a990cd9fdcbd2f008c312a4627bdcfd6b0dc0f6823bf"
