@@ -29,6 +29,18 @@ files = [
 markers = {main = "platform_system == \"Windows\"", dev = "sys_platform == \"win32\""}
 
 [[package]]
+name = "colored"
+version = "2.2.4"
+description = "Simple python library for color and formatting to terminal"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "colored-2.2.4-py3-none-any.whl", hash = "sha256:a7069673bd90a35f46cb748d012c17284a0668d2f1c06bc7a51822a2d5ad2112"},
+    {file = "colored-2.2.4.tar.gz", hash = "sha256:595e1dd7f3b472ea5f12af21d2fec8a2ea2cf8f9d93e67180197330b26df9b61"},
+]
+
+[[package]]
 name = "iniconfig"
 version = "2.0.0"
 description = "brain-dead simple config-ini parsing"
@@ -320,20 +332,19 @@ files = [
 
 [[package]]
 name = "transdoc"
-version = "0.2.5"
+version = "1.0.0"
 description = "Transform your documentation by embedding results from Python function calls"
 optional = false
-python-versions = ">= 3.11"
+python-versions = ">=3.11"
 groups = ["main"]
-files = []
-develop = true
+files = [
+    {file = "transdoc-1.0.0-py3-none-any.whl", hash = "sha256:ae3dea7e76c32595c843388ca5e72e733ce055d801ba3df3995ded27086446d3"},
+    {file = "transdoc-1.0.0.tar.gz", hash = "sha256:5d5a905ed42a7fc9f008e82cd744a11405bd073380a7afc2850535263103d8c8"},
+]
 
 [package.dependencies]
 click = ">=8.1.7,<9"
-
-[package.source]
-type = "directory"
-url = "../transdoc"
+colored = ">=2.2.4,<3.0.0"
 
 [[package]]
 name = "typing-extensions"
@@ -349,5 +360,5 @@ files = [
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.12"
-content-hash = "e6f5dab415b12c29fb3047f283be809b9a4ad14ee57062b3ad7501d8a7eb1120"
+python-versions = ">=3.11"
+content-hash = "83a3b289f902a41aea795fbb198821889bb46d0f3ca8e198caadac0a1c537f9e"
