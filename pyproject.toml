@@ -15,6 +15,12 @@ dependencies = [
 [project.entry-points.'transdoc.handlers']
 python = 'transdoc_python:TransdocPythonHandler'
 
+[project.urls]
+homepage = "https://maddyguthridge.github.io/transdoc/handlers"
+repository = "https://github.com/MaddyGuthridge/transdoc-python"
+documentation = "https://maddyguthridge.github.io/transdoc/handlers"
+"Bug Tracker" = "https://github.com/MaddyGuthridge/transdoc-python/issues"
+
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.9.2"
 mypy = "^1.14.1"
@@ -26,7 +32,7 @@ include = ["py.typed"]
 
 [tool.mypy]
 check_untyped_defs = true
-files = ["transdoc_python"]
+files = ["transdoc_python", "tests"]
 
 [tool.ruff]
 line-length = 79
