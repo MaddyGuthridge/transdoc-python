@@ -37,7 +37,7 @@ def make_link(text: str, href: str) -> str:
     # Please don't write code this insecure in real life
     return f"<a href={href}>{text}</a>"
 
-
+# After
 def make_link(text: str, href: str) -> str:
     '''
     Generate an HTML link.
