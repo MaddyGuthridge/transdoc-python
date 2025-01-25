@@ -5,11 +5,11 @@ description = "A Transdoc handler for Python docstrings"
 authors = [{ name = "Maddy Guthridge", email = "hello@maddyguthridge.com" }]
 license = { text = "MIT" }
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     # Keeping it like this until I release a stable version
     "libcst (>=1.6.0,<2.0.0)",
-    "transdoc @ file:///home/maddy/Source/transdoc",
+    "transdoc (>=1.0.0,<2.0.0)",
 ]
 
 [project.entry-points.'transdoc.handlers']
@@ -23,11 +23,6 @@ jestspectation = "^1.4.5"
 
 [tool.poetry]
 include = ["py.typed"]
-
-# Temporary while I debug things
-[tool.poetry.dependencies]
-python = ">=3.12"
-transdoc = { develop = true }
 
 [tool.mypy]
 check_untyped_defs = true
