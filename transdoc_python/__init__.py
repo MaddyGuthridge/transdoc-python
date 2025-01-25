@@ -5,6 +5,7 @@ A Transdoc handler for Python docstrings, using libcst to rewrite
 documentation.
 """
 
+from pathlib import Path
 from typing import IO
 import libcst as cst
 from libcst import MetadataWrapper
@@ -18,8 +19,8 @@ class TransdocPythonHandler:
     A Transdoc handler for Python docstrings.
     """
 
-    def get_file_matchers(self):
-        return ["py", "pyi"]
+    def matches_file(self, file_path: str) -> bool:
+        return Path(file_path).suffix in [".py", ".pyi"]
 
     def transform_file(
         self,

@@ -19,6 +19,7 @@ python = 'transdoc_python:TransdocPythonHandler'
 ruff = "^0.9.2"
 mypy = "^1.14.1"
 pytest = "^8.3.4"
+jestspectation = "^1.4.5"
 
 [tool.poetry]
 include = ["py.typed"]
