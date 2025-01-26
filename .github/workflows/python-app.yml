@@ -43,7 +43,7 @@ jobs:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
     - run: poetry --version
-    - run: poetry install --all-extras
+    - run: poetry install
     - name: Lint with ruff
       run: |
         poetry run ruff check
@@ -64,7 +64,7 @@ jobs:
         path: ~/.cache/pypoetry/virtualenvs
         key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
     - run: poetry --version
-    - run: poetry install --all-extras
+    - run: poetry install
     - name: Lint with mypy
       run: |
         poetry run mypy
