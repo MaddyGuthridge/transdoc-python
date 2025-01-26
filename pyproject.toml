@@ -1,6 +1,6 @@
 [project]
 name = "transdoc-python"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Transdoc handler for Python docstrings"
 authors = [{ name = "Maddy Guthridge", email = "hello@maddyguthridge.com" }]
 license = { text = "MIT" }
