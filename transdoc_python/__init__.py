@@ -28,6 +28,9 @@ class TransdocPythonHandler:
     A Transdoc handler for Python docstrings.
     """
 
+    def __repr__(self) -> str:
+        return "TransdocPythonHandler"
+
     def matches_file(self, file_path: str) -> bool:
         return Path(file_path).suffix in [".py", ".pyi"]
 
