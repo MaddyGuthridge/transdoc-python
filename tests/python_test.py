@@ -4,8 +4,9 @@
 Test cases for transforming Python code.
 """
 
-import jestspectation as expect
 from inspect import getsource
+
+import jestspectation as expect
 from transdoc import TransdocTransformer, get_all_handlers, transform
 
 from transdoc_python import TransdocPythonHandler
@@ -42,9 +43,12 @@ def hello(name: str) -> str:
 def test_transforms_python():
     """Ensure the handler correctly processes"""
     transformer = TransdocTransformer({"hello": hello})
-    assert transform(
-        transformer,
-        getsource(hello),
-        path="hello.py",
-        handler=TransdocPythonHandler(),
-    ) == expected
+    assert (
+        transform(
+            transformer,
+            getsource(hello),
+            path="hello.py",
+            handler=TransdocPythonHandler(),
+        )
+        == expected
+    )

@@ -9,13 +9,13 @@ from importlib.metadata import version
 from logging import getLogger
 from pathlib import Path
 from typing import IO
+
+import libcst
 import libcst as cst
 from libcst import MetadataWrapper
-import libcst
 from transdoc import TransdocHandler, TransdocTransformer
 
 from transdoc_python.__visitor import DocstringVisitor
-
 
 __version__ = version("transdoc-python")
 
@@ -53,7 +53,8 @@ class TransdocPythonHandler:
             # Just copy the file instead
             # TODO: More-integrated way to warn of this
             log.warning(
-                f"{in_path} failed to parse using libcst. Copying file as-is instead."
+                f"{in_path} failed to parse using libcst. "
+                f"Copying file as-is instead."
             )
             if out_file is not None:
                 out_file.write(in_file.read())
