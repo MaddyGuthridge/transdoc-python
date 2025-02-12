@@ -7,6 +7,7 @@ Test cases for transforming Python code.
 from inspect import getsource
 
 import jestspectation as expect
+import pytest
 from transdoc import TransdocTransformer, get_all_handlers, transform
 
 from transdoc_python import TransdocPythonHandler
@@ -52,3 +53,28 @@ def test_transforms_python():
         )
         == expected
     )
+
+
+def err(msg: str) -> str:
+    """
+    Raise an exception with the given error.
+
+    Example: {{err[An intentional error]}}
+    """
+    raise Exception(msg)
+
+
+def test_gracefully_handles_errors():
+    """
+    Ensure that errors are handled gracefully (raised in an ExceptionGroup).
+    """
+    transformer = TransdocTransformer({"err": err})
+    with pytest.raises(ExceptionGroup) as excinfo:
+        transform(
+            transformer,
+            getsource(err),
+            path="err.py",
+            handler=TransdocPythonHandler(),
+        )
+
+    assert excinfo.group_contains(Exception)
