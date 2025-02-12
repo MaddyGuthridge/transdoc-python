@@ -64,6 +64,7 @@ class DocstringVisitor(cst.CSTTransformer):
                 )
             except Exception as e:
                 self.__errors.append(e)
+                return updated_node
 
             return updated_node.with_changes(value=processed)
         return updated_node
