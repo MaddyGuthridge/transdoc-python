@@ -14,6 +14,7 @@ import libcst
 import libcst as cst
 from libcst import MetadataWrapper
 from transdoc import TransdocHandler, TransdocTransformer
+from transdoc.source_pos import SourcePos
 
 from transdoc_python.__visitor import DocstringVisitor
 
@@ -51,14 +52,23 @@ class TransdocPythonHandler:
                 out_file.write(updated_cst.code)
         except libcst.ParserSyntaxError:
             # Error while parsing the file
-            # Just copy the file instead
+            # Just copy the file instead. We can safely transform it, since
+            # while there is the risk of breaking Python syntax, the syntax is
+            # already broken anyway, so it doesn't matter too much.
+            # Perhaps this could cause issues if new Python syntax is
+            # introduced that is unsupported by libcst. In this case, updating
+            # libcst is the solution.
             # TODO: More-integrated way to warn of this
             log.warning(
                 f"{in_path} failed to parse using libcst. "
-                f"Copying file as-is instead."
+                f"Transforming file as plaintext instead."
             )
             if out_file is not None:
-                out_file.write(input_text)
+                out_file.write(
+                    transformer.transform(
+                        input_text, in_path, SourcePos.zero()
+                    )
+                )
 
 
 __all__ = [

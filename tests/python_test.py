@@ -78,3 +78,38 @@ def test_gracefully_handles_errors():
         )
 
     assert excinfo.group_contains(Exception)
+
+
+invalid_python = """
+def invalid python():
+    #      ^
+    #      whitespace in function name
+    # {{hello[Maddy]}}
+
+    print("this code is intentionally invalid to fail parsing")
+"""
+invalid_python_transformed = """
+def invalid python():
+    #      ^
+    #      whitespace in function name
+    # Hello, Maddy
+
+    print("this code is intentionally invalid to fail parsing")
+"""
+
+
+def test_uses_standard_transformation_when_parsing_fails():
+    """
+    If parsing the Python CST fails, the text should be transformed as a plain
+    string.
+    """
+    transformer = TransdocTransformer({"hello": hello})
+    assert (
+        transform(
+            transformer,
+            invalid_python,
+            path="hello.py",
+            handler=TransdocPythonHandler(),
+        )
+        == invalid_python_transformed
+    )
