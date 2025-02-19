@@ -41,8 +41,9 @@ class TransdocPythonHandler:
         in_file: IO,
         out_file: IO | None,
     ) -> None:
+        input_text = in_file.read()
         try:
-            parsed = MetadataWrapper(cst.parse_module(in_file.read()))
+            parsed = MetadataWrapper(cst.parse_module(input_text))
             visitor = DocstringVisitor(transformer, in_path)
             updated_cst = parsed.visit(visitor)
             visitor.raise_errors()
@@ -57,7 +58,7 @@ class TransdocPythonHandler:
                 f"Copying file as-is instead."
             )
             if out_file is not None:
-                out_file.write(in_file.read())
+                out_file.write(input_text)
 
 
 __all__ = [
