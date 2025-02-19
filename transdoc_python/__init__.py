@@ -66,7 +66,7 @@ class TransdocPythonHandler:
             if out_file is not None:
                 out_file.write(
                     transformer.transform(
-                        input_text, in_path, SourcePos.zero()
+                        input_text, in_path, SourcePos(1, 0)
                     )
                 )
 
