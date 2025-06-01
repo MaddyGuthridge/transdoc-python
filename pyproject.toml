@@ -21,7 +21,7 @@ documentation = "https://maddyguthridge.github.io/transdoc/handlers"
 "Bug Tracker" = "https://github.com/MaddyGuthridge/transdoc-python/issues"
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.11.7"
+ruff = "^0.11.12"
 mypy = "^1.16.0"
 pytest = "^8.3.5"
 jestspectation = "^1.4.5"
