@@ -22,7 +22,7 @@ documentation = "https://maddyguthridge.github.io/transdoc/handlers"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.12.1"
-mypy = "^1.16.0"
+mypy = "^1.16.1"
 pytest = "^8.4.1"
 jestspectation = "^1.4.5"
 
