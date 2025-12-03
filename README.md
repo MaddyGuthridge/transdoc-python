@@ -5,6 +5,9 @@ A Transdoc handler for Python docstrings.
 ## Installation
 
 ```sh
+# Use your dependency manager of choice
+uv add transdoc[python]
+poetry add transdoc[python]
 pip install transdoc[python]
 ```
 

@@ -14,20 +14,19 @@ dependencies = [
 [project.entry-points.'transdoc.handlers']
 python = 'transdoc_python:TransdocPythonHandler'
 
+[dependency-groups]
+dev = [
+    "ruff>=0.14.7",
+    "mypy>=1.19.0",
+    "pytest>=9.0.1",
+    "jestspectation>=1.4.5",
+]
+
 [project.urls]
 homepage = "https://maddyguthridge.github.io/transdoc/handlers"
 repository = "https://github.com/MaddyGuthridge/transdoc-python"
 documentation = "https://maddyguthridge.github.io/transdoc/handlers"
 "Bug Tracker" = "https://github.com/MaddyGuthridge/transdoc-python/issues"
-
-[tool.poetry.group.dev.dependencies]
-ruff = "^0.14.7"
-mypy = "^1.19.0"
-pytest = "^9.0.1"
-jestspectation = "^1.4.5"
-
-[tool.poetry]
-include = ["py.typed"]
 
 [tool.mypy]
 check_untyped_defs = true
@@ -64,5 +63,9 @@ exclude_lines = [
 ]
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build>=0.7.20,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "transdoc_python"
+module-root = ""
