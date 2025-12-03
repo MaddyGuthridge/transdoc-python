@@ -24,6 +24,19 @@ jobs:
     - name: Test with pytest
       run: |
         uv run coverage run -m pytest
+    - name: Log code coverage
+      run: |
+        uv run coverage report
+    - name: Generate code coverage report
+      if: ${{ github.event_name == 'pull_request' }}
+      run: |
+        uv run coverage xml
+    - name: Create code coverage comment
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: orgoro/coverage@v3
+      with:
+          coverageFile: coverage.xml
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   Lint:
     runs-on: ubuntu-latest
