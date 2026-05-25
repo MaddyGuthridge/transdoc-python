@@ -2,6 +2,11 @@
 
 A Transdoc handler for Python docstrings.
 
+## The code has moved
+
+This repository has moved to the [transdoc monorepo](https://github.com/MaddyGuthridge/transdoc).
+This repository has been archived.
+
 ## Installation
 
 ```sh
